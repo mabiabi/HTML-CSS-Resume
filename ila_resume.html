@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Biabi — Data Analyst &amp; BI Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #C8D4D0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+
+    .page {
+      width: 840px;
+      max-width: 100%;
+      display: flex;
+      min-height: 1060px;
+      background: #F8FAF9;
+      box-shadow: 0 10px 60px rgba(0,0,0,0.24);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    /* ═══════════ SIDEBAR ═══════════ */
+    .sidebar {
+      width: 282px;
+      flex-shrink: 0;
+      background: #13221D;
+      border-right: 3px solid #10B981;
+      padding: 36px 24px 36px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .name-block h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -1.5px;
+      line-height: 1;
+    }
+
+    .name-block .role-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: #10B981;
+      margin-top: 8px;
+    }
+
+    /* Contact */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #1B3028;
+    }
+
+    .contact-item {
+      font-size: 11px;
+      color: #7DAAA3;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      line-height: 1.4;
+    }
+
+    .contact-item a { color: #7DAAA3; text-decoration: none; }
+    .contact-item a:hover { color: #10B981; }
+
+    .c-icon { width: 14px; flex-shrink: 0; text-align: center; font-size: 11px; }
+
+    /* Sidebar section label */
+    .s-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #10B981;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #1B3028;
+    }
+
+    /* Skill groups */
+    .skill-group { margin-bottom: 11px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group-name {
+      font-size: 9px;
+      font-weight: 600;
+      color: #3D6A60;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-bottom: 5px;
+    }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 3px; }
+
+    .pill {
+      font-size: 10px;
+      color: #A8C8C3;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid #1B3028;
+      border-radius: 2px;
+      padding: 2px 6px;
+      line-height: 1.6;
+    }
+
+    /* Education */
+    .edu-item { margin-bottom: 12px; }
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #D0E4E0;
+      line-height: 1.4;
+    }
+
+    .edu-school {
+      font-size: 10px;
+      color: #5A8880;
+      margin-top: 2px;
+    }
+
+    .edu-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: #2E5248;
+      margin-top: 2px;
+    }
+
+    /* Courses */
+    .course-line {
+      font-size: 10px;
+      color: #6A9E98;
+      line-height: 1.85;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .course-line::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #10B981;
+      font-size: 8px;
+      top: 3px;
+    }
+
+    /* ═══════════ MAIN ═══════════ */
+    .main {
+      flex: 1;
+      padding: 34px 30px 36px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Impact Strip */
+    .impact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .metric {
+      background: #F0FDF8;
+      border: 1px solid #6EE7BF;
+      border-radius: 4px;
+      padding: 11px 13px;
+    }
+
+    .metric-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      color: #054F35;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .metric-desc {
+      font-size: 9px;
+      color: #047857;
+      font-weight: 500;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* Summary */
+    .summary {
+      font-size: 12.5px;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #DEE9E5;
+    }
+
+    .summary strong {
+      color: #0F1F18;
+      font-weight: 600;
+    }
+
+    /* Section header */
+    .section-head {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #10B981;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #DEE9E5;
+    }
+
+    /* Jobs */
+    .job { margin-bottom: 20px; }
+    .job:last-child { margin-bottom: 0; }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .job-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0F1F18;
+      line-height: 1.2;
+    }
+
+    .job-company {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: #10B981;
+      margin-top: 2px;
+    }
+
+    .job-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      color: #6B7280;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    /* Bullets */
+    .job-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .job-bullets li {
+      font-size: 11.5px;
+      color: #374151;
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .job-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 7px;
+      width: 5px;
+      height: 5px;
+      background: #10B981;
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+
+    .job-bullets li strong {
+      color: #0A3D28;
+      font-weight: 600;
+    }
+
+    .job-bullets li a {
+      color: #059669;
+      text-decoration: none;
+    }
+
+    .job-bullets li a:hover { text-decoration: underline; }
+
+    /* ═══════════ PRINT ═══════════ */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; width: 100%; }
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 0; }
+      .page { flex-direction: column; border-radius: 0; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 3px solid #10B981; }
+      .impact-strip { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════ SIDEBAR ══════ -->
+  <aside class="sidebar">
+
+    <div class="name-block">
+      <h1>Ali Biabi</h1>
+      <div class="role-tag">Data Analyst &amp; BI Developer</div>
+    </div>
+
+    <div class="contact-list">
+      <div class="contact-item"><span class="c-icon">📞</span>0935 504 60 00</div>
+      <div class="contact-item"><span class="c-icon">✉</span><a href="mailto:Ila@ut.ac.ir">Ila@ut.ac.ir</a></div>
+      <div class="contact-item"><span class="c-icon">🔗</span><a href="https://www.linkedin.com/in/Ila-7366581a4" target="_blank" rel="noopener">linkedin.com/in/Ila</a></div>
+      <div class="contact-item"><span class="c-icon">📍</span>Tehran, Iran</div>
+    </div>
+
+    <!-- SKILLS -->
+    <div>
+      <div class="s-label">Skills</div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Data Engineering</div>
+        <div class="pills">
+          <span class="pill">Python</span>
+          <span class="pill">SQL Server</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">pandas</span>
+          <span class="pill">SQLAlchemy</span>
+          <span class="pill">ETL / ELT</span>
+          <span class="pill">Power Query</span>
+          <span class="pill">Star / Snowflake Schema</span>
+          <span class="pill">Git / GitHub</span>
+          <span class="pill">VBA / Apps Script</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Analytics &amp; BI</div>
+        <div class="pills">
+          <span class="pill">Power BI + DAX</span>
+          <span class="pill">Tableau</span>
+          <span class="pill">SPSS</span>
+          <span class="pill">Excel (Advanced)</span>
+          <span class="pill">Regression &amp; ANOVA</span>
+          <span class="pill">A/B Testing</span>
+          <span class="pill">KPI Frameworks</span>
+          <span class="pill">CLV Modeling</span>
+          <span class="pill">LLM Integration</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-name">Communication</div>
+        <div class="pills">
+          <span class="pill">Data Storytelling</span>
+          <span class="pill">Exec Presentations</span>
+          <span class="pill">Stakeholder Mgmt</span>
+          <span class="pill">Technical Writing</span>
+          <span class="pill">Workshop Facilitation</span>
+          <span class="pill">Teamwork Management</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div>
+      <div class="s-label">Education</div>
+
+      <div class="edu-item">
+        <div class="edu-degree">M.Sc. Social Sciences</div>
+        <div class="edu-school">University of Tehran</div>
+        <div class="edu-year">2018 – 2021</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-degree">B.Sc. Industrial Metallurgy Engineering</div>
+        <div class="edu-school">IKIU, Qazvin, Iran</div>
+        <div class="edu-year">2013 – 2018</div>
+      </div>
+    </div>
+
+      <div class="edu-item">
+        <div class="edu-degree">HSD Mathematics & Physics</div>
+        <div class="edu-school">Allameh Helli Center, Tehran, Iran</div>
+        <div class="edu-year">2006 – 2013</div>
+      </div>
+
+    <!-- COURSES -->
+    <div>
+      <div class="s-label">Courses</div>
+      <div class="course-line">Database Fundamentals &amp; SQL Server - H. Sadeghian Gheidari</div>
+      <div class="course-line">SQL Optimization &amp; Power BI - H. Babazadeh</div>
+      <div class="course-line">Python Programming — Complete + Advanced - Jadi Mirmirani</div>
+      <div class="course-line">Git &amp; GitHub - Jadi Mirmirani</div>
+      <div class="course-line">Web Crawling with Python - M. Azari Jafari</div>
+      <div class="course-line">Problem-Solving with Data - Maktabkhooneh</div>
+    </div>
+
+  </aside>
+
+  <!-- ══════ MAIN ══════ -->
+  <main class="main">
+
+    <!-- Impact Metrics -->
+    <div class="impact-strip">
+      <div class="metric">
+        <div class="metric-num">8h → 15min</div>
+        <div class="metric-desc">Report automation — 98% time saved per cycle</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">~40%</div>
+        <div class="metric-desc">Reduction in manual data processing via automation</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">0 → DWH</div>
+        <div class="metric-desc">Full data warehouse built end-to-end from zero</div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+      Data Analyst with <strong>4+ years</strong> turning siloed, manual processes into automated pipelines and decision-ready dashboards. Recently built a <strong>complete data warehouse from zero</strong> for a manufacturing firm — star-schema SQL Server model, Python ETL, and a 10-page Power BI suite — replacing 100% of manual Excel reporting. Fluent in English; experienced presenting insights to C-suite and cross-functional teams. Actively seeking business-facing analyst or BI roles with measurable scope for impact.
+    </div>
+
+    <!-- EXPERIENCE -->
+    <h2 class="section-head">Experience</h2>
+
+    <!-- Job 1 -->
+    <div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-name">Data Warehouse Project</div>
+          <div class="job-company">SMD Smart · Tehran, Iran</div>
+        </div>
+        <div class="job-period">Mar – Jun 2026</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Designed and delivered a <strong>complete data infrastructure from zero</strong> for a 25-person PCB manufacturer serving 150+ customers — star-schema SQL Server DWH (2 fact + 6 dimension tables), Python/pandas/SQLAlchemy ETL, and a 10-page Power BI dashboard with 10+ DAX measures, replacing 100% of manual Excel reporting.</li>
+        <li>Led business discovery and KPI definition sessions with the CEO and operations team, mapping the full order-to-delivery workflow and surfacing critical financial and quality metrics (on-time delivery, COPQ, defect rate, CLV).</li>
+        <li>Delivered a <strong>fully self-sustaining solution</strong>: automated ETL scheduling, complete technical documentation, and hands-on training for non-technical managers — enabling independent, data-driven operations with zero ongoing analyst dependency.</li>
+      </ul>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-name">Library Database Specialist</div>
+          <div class="job-company">Faculty of Social Sciences, University of Tehran · Tehran, Iran</div>
+        </div>
+        <div class="job-period">Apr 2024 – Mar 2026</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Managed SQL Server 2019 database supporting <strong>3,500+ books and 300+ theses</strong>; developed stored procedures and custom queries that reduced manual reporting effort for library administration.</li>
+        <li>Applied MARC 21 and RDA standards; implemented validation rules and routine data-cleaning routines to maintain metadata integrity across the entire faculty collection.</li>
+        <li>Delivered ad-hoc SQL reporting to faculty members, informing data-driven decisions on collection development and budget allocation.</li>
+      </ul>
+    </div>
+
+    <!-- Job 3 -->
+    <div class="job">
+      <div class="job-top">
+        <div>
+          <div class="job-name">Research Team Data Analyst</div>
+          <div class="job-company">NODET · Tehran, Iran</div>
+        </div>
+        <div class="job-period">May 2022 – Apr 2024</div>
+      </div>
+      <ul class="job-bullets">
+        <li><strong>8 hours → 15 minutes:</strong> Automated bulk report generation for 30+ teachers across 1,000+ records (300+ data fields) using MS Access + Word mail merge, eliminating a full workday of manual effort per reporting cycle.</li>
+        <li><strong>~40% reduction in manual processing</strong> by building Excel/VBA automation pipelines for recurring data collection and cleaning workflows.</li>
+        <li><strong>2× faster analysis</strong> by developing reusable SPSS syntax scripts for standardized statistical workflows, cutting processing time in half per cycle.</li>
+        <li>Co-authored a <strong>peer-reviewed journal paper</strong> with Dr. Naghdi's research team, applying structured problem-solving frameworks to translate complex institutional data into published quantitative findings — <a href="https://qjsd.atu.ac.ir/article_13149.html" target="_blank" rel="noopener">read here</a>.</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
