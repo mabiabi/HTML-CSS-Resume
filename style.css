@@ -12,6 +12,8 @@
       padding: 2rem 1rem;
     }
 
+    body a { color: #2f6b5e; text-decoration: none; }
+
     /* Resume Card */
     .resume {
       max-width: 1050px;
