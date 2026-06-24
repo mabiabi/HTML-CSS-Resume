@@ -68,6 +68,8 @@
       white-space: nowrap;
     }
 
+    .contact-item a {color: #2f6b5e; text-decoration: none;}
+
     .contact-stack .contact-item:last-child {
       margin-bottom: 0;
     }
